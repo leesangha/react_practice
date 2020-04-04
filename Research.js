@@ -1,8 +1,17 @@
-import React, { useCallback } from 'react';
+import React, {useState, useCallback } from 'react';
 
 
 function Research() {
-   
+    const [inputs, setInputs]=useState({
+        search:'',
+    });
+    const onChange = useCallback( (e)=>{
+        const {name, value} = e.target;
+        setInputs(
+            ...inputs,
+            [name]:value,
+        )
+    },[inputs])
     return(
         <div>
             <ol>
